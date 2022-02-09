@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Home.css"
 import {Link, Navigate} from "react-router-dom";
+import Navbar from "./Navbar";
 var mysql = window.require('mysql');
 
 
@@ -47,6 +48,7 @@ const Home = () => {
   checkNewUpdate()
   const content = (
     <div className="App">
+      {Navbar()}
       <header className="App-header">
         <h1>THIS IS HOME PAGE</h1>
         <a>Name: {Username}</a>

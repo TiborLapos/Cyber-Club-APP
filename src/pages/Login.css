@@ -5,29 +5,6 @@ body{
   height: 100%; 
   overflow: hidden;
 }
-.navbar {
-  -webkit-app-region: drag;
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-.navbar li{
-  display: inline;
-  padding-left: 10px;
-}
-
-.navbar #close{
-  color: red;
-  font-size:15px;
-}
-.navbar #minimaze{
-  color: rgb(253, 186, 2);
-  font-size:15px;
-}
-.navbar #full_screen{
-  color: rgb(1, 241, 1);
-  font-size:15px;
-}
-
 
 .login-form{
   color: white;

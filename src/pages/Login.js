@@ -3,6 +3,7 @@ import './Login.css'
 import log_photo from '../images/rob.gif'
 import { BrowserRouter as Router, Route, Link, Routes, NavLink, Navigate } from "react-router-dom";
 import { CloseCircleFilled,MinusCircleFilled,FullscreenOutlined } from '@ant-design/icons';
+import Navbar from './Navbar.js'
 const { ipcRenderer } = window.require("electron");
 
 
@@ -97,29 +98,10 @@ function Login() {
       <div className="error">{errorMessages.message}</div>
     );
 
-  function send_exit() {
-    ipcRenderer.send('exit');
-  };
-
-  function send_maximaze() {
-    ipcRenderer.send('full:screen');
-  };
-
-  function send_minimaze() {
-    ipcRenderer.send('set:down');
-  };
   // JSX code for login form
   const renderForm = (
     <>
- 
-    <div className="navbar">
-      <nav>
-        <li id="close" onClick={send_exit}><CloseCircleFilled /></li>
-        <li id="minimaze" onClick={send_minimaze}><MinusCircleFilled /></li>
-        <li id="full_screen" onClick={send_maximaze}><FullscreenOutlined /></li>
-
-      </nav>
-    </div>
+    {Navbar()}
     <div className="form">
       <div className='left-side'>
         <div className="lf_cont">

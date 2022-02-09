@@ -1,0 +1,23 @@
+.navbar {
+    -webkit-app-region: drag;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: rgba(19, 18, 18, 0.815);
+  }
+  .navbar li{
+    display: inline;
+    padding-left: 10px;
+  }
+  
+  .navbar #close{
+    color: red;
+    font-size:15px;
+  }
+  .navbar #minimaze{
+    color: rgb(253, 186, 2);
+    font-size:15px;
+  }
+  .navbar #full_screen{
+    color: rgb(1, 241, 1);
+    font-size:15px;
+  }
