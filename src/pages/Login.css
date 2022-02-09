@@ -1,0 +1,157 @@
+body{
+  background-color: #1a1a1a;
+  margin: 0;
+  margin: 0; 
+  height: 100%; 
+  overflow: hidden;
+}
+.navbar {
+  -webkit-app-region: drag;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.navbar li{
+  display: inline;
+  padding-left: 10px;
+}
+
+.navbar #close{
+  color: red;
+  font-size:15px;
+}
+.navbar #minimaze{
+  color: rgb(253, 186, 2);
+  font-size:15px;
+}
+.navbar #full_screen{
+  color: rgb(1, 241, 1);
+  font-size:15px;
+}
+
+
+.login-form{
+  color: white;
+  background-color: #1a1a1a;
+  width:35%;
+  margin: 0;  
+  padding: 0;  
+  float: right;
+  margin-right: 12%;
+  border-radius: 15px ;  
+  margin-top: 5%;
+  font-family: 'Titillium Web', sans-serif;
+}
+.login-form h1{
+  text-align: center;
+  margin-bottom: 0px;
+}
+.login-form p{
+  margin-top: 0px;
+  text-align: center;
+}
+.login-container{
+  padding: 20px 15px;
+  padding-bottom: 5%;
+}
+.login-container label{
+  float: left;
+}
+
+.login-input{
+  float: left;
+  width: 100%;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+  font-size: 16px;
+  border: none; /* <-- This thing here */
+  border:solid 1px #ccc;
+  border-radius: 15px;
+
+}
+.login_button{
+  color: white;
+  background-color: #6600ff;
+  border: none;
+  padding: 10px 25px;
+  font-size: 20px;
+  width: 100%;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+.login_button:hover{
+  background-color: #5200cc;
+  cursor: pointer;
+}
+.login-container button{
+  float: right;
+}
+.login-container label{
+  margin-bottom: 5px;
+}
+.login-sup{
+  float: left;
+  margin-top: 0px;
+}
+.login-sup a{
+  width: 100%;
+  text-decoration: none;
+  color: #595959;
+}
+
+
+.login-error{
+  float: left;
+  width: 100%;
+  text-align: left;
+}
+.error{
+  color: #CF6679;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 0px;
+}
+
+
+/* LEFT SIDE */
+.left-side{
+  float: left;
+  width: 50%;
+  margin-top: 0px;
+}
+.lf_cont{
+  background-color: #6600ff;
+  margin-top: 0px;
+  width:90%;
+  height: 100vh;
+
+}
+.lf_cont h1{
+  margin-top: 0px;
+  color: White;
+  font-family: 'Titillium Web', sans-serif;
+  text-align: center;
+  font-size: 66px;
+  padding-top: 50px;
+  margin-bottom: 0px;
+  font-weight: 400;
+}
+
+
+
+.lf_cont img{
+  margin-left:60px;
+  width: 300px;
+  height: 300px;
+}
+
+
+@media only screen and (min-width: 1513px){
+ .login-form{
+     width: 30%;
+ }
+ .lf_cont img{
+     margin-left: 20%;
+     margin-top: 2%;
+ }
+}

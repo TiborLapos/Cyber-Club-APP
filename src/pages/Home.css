@@ -1,0 +1,12 @@
+body{
+    color: white;
+}
+
+body h1{
+    text-align: center;
+}
+
+body #logout{
+    color: pink;
+    text-decoration: none;
+}
