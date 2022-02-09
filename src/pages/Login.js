@@ -65,7 +65,7 @@ function Login() {
             if (err) {
               throw err
             } else if (!isMatch) {
-              console.log("error_bad_password_")
+              console.log("error_bad_password_s")
               setErrorMessages({ name: "pass", message: errors.pass });
             } else {
               console.log("ok_password");
