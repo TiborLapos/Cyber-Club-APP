@@ -50,18 +50,14 @@ const Home = () => {
   const content = (
     <div className="App">
       {Navbar()}
-      {Menu()}
       <div className="content">
+        {Menu()}
         <h1>THIS IS HOME PAGE</h1>
         <a>Name: {Username}</a>
         <br/>
         <a>LOCAL UUID: </a>{localStorage.getItem("uuid")}
         <br/>
         <a>DATABASE UUID: {U_UUID}</a>
-        <br/>
-        <Link to="/chat" id='chat'>Chat</Link>
-        <br/>
-        <Link to="/logout" id='logout'>Log Out</Link>
       </div>
     </div>
   )

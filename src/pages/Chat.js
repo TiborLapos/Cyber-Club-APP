@@ -29,7 +29,6 @@ function Chat() {
             <input type={"text"} placeholder="John..." onChange={(event) => {setUsername(event.target.value)}}></input>
             <input type={"text"} placeholder="Room ID..." onChange={(event) => {setRoom(event.target.value)}}></input>
             <button onClick={joinRoom}>Join A Room</button>
-            <Link to="/home" id='home'>Home</Link>
             <Chat_send_recv socket={socket} username={username} room={room} />
         </div>
         </>

@@ -3,7 +3,7 @@ body{
 }
 .leftMenu{
     height: 100%;
-    width: 130px;
+    width: 120px;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -23,8 +23,17 @@ body{
     list-style: none;
     text-decoration: none;
 }
+
 .leftMenu li a{
     color: white;
     text-decoration: none;
     font-size: 16px;
+}
+
+
+.bottomMenu{
+    color: red;
+    position:absolute;   
+    bottom:0;   
+    padding-bottom: 20px;                      
 }
