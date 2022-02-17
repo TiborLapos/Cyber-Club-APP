@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Home.css"
 import {Link, Navigate} from "react-router-dom";
 import Navbar from "./Navbar";
+import Menu from "./struct/Menu"
 var mysql = window.require('mysql');
 
 
@@ -49,7 +50,8 @@ const Home = () => {
   const content = (
     <div className="App">
       {Navbar()}
-      <header className="App-header">
+      {Menu()}
+      <div className="content">
         <h1>THIS IS HOME PAGE</h1>
         <a>Name: {Username}</a>
         <br/>
@@ -60,7 +62,7 @@ const Home = () => {
         <Link to="/chat" id='chat'>Chat</Link>
         <br/>
         <Link to="/logout" id='logout'>Log Out</Link>
-      </header>
+      </div>
     </div>
   )
   useEffect(() => {

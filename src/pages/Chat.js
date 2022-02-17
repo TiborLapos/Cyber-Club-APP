@@ -4,6 +4,8 @@ import Navbar from "./Navbar";
 import io from 'socket.io-client'
 import "./Chat.css"
 import Chat_send_recv from "./Chat_send_recv";
+import {Link, Navigate} from "react-router-dom";
+import Menu from "./struct/Menu";
 
 const socket = io.connect("http://localhost:3001");
 
@@ -21,12 +23,13 @@ function Chat() {
     return (
         <>
         {Navbar()}
+        {Menu()}
         <div className="Chat">
             <h3>Join A Chat</h3>
             <input type={"text"} placeholder="John..." onChange={(event) => {setUsername(event.target.value)}}></input>
             <input type={"text"} placeholder="Room ID..." onChange={(event) => {setRoom(event.target.value)}}></input>
             <button onClick={joinRoom}>Join A Room</button>
-
+            <Link to="/home" id='home'>Home</Link>
             <Chat_send_recv socket={socket} username={username} room={room} />
         </div>
         </>

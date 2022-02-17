@@ -1,0 +1,30 @@
+body{
+    margin: 0;
+}
+.leftMenu{
+    height: 100%;
+    width: 130px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 40px;
+}
+.leftMenu ul{
+    padding-left: 25px;
+    text-transform: uppercase;
+}
+
+.leftMenu li{
+    padding-left: 5px;
+    padding-bottom: 26px;
+    list-style: none;
+    text-decoration: none;
+}
+.leftMenu li a{
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
