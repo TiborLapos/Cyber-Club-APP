@@ -9,6 +9,8 @@ function createWindow() {
   const win = new BrowserWindow({
     width: 900,
     height: 600,
+    minWidth:750,
+    minHeight:500,
     frame: false,
     webPreferences: {
       nodeIntegration: true,
@@ -43,9 +45,8 @@ function createWindow() {
 // Some APIs can only be used after this event occurs.
 app.on('ready', () =>{
   createWindow()
-
-
 })
+
 ipcMain.on('exit', (event, data) => {
   app.quit();
 });

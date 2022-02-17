@@ -3,6 +3,7 @@ import Home from "./Home"
 import Login from "./Login"
 import Missingroute from "./Missingroute";
 import Logout from "./Logout"
+import Chat from "./Chat";
 import { BrowserRouter as Router, Route, Link, Routes, NavLink } from "react-router-dom";
 
 
@@ -17,6 +18,7 @@ const Navigate = () => {
             </Route>
             <Route path="/home"  element={<Home/>} />
             <Route path="/logout"  element={<Logout/>} />
+            <Route path="/chat"  element={<Chat/>} />
             <Route element={ <Home/> } />
             <Route path="*" element={<Missingroute/>} />
           </Routes>
