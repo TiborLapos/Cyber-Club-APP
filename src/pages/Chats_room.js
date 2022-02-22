@@ -33,7 +33,7 @@ function Chats_room({ socket, username, room }) {
   return (
     <div className="chat-window">
       <div className="chat-name">
-        <p>Live Chat</p>
+        <p>{localStorage.getItem('room_name')}</p>
       </div>
       <div className="chat-body">
         <ScrollToBottom className="message-container">
