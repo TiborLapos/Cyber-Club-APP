@@ -1,39 +1,46 @@
-import React from "react";
+import io from "socket.io-client";
 import { useState } from "react";
-import Navbar from "./Navbar";
-import io from 'socket.io-client'
-import "./Chat.css"
-import Chat_send_recv from "./Chat_send_recv";
-import {Link, Navigate} from "react-router-dom";
+import Chats_room from "./Chats_room";
 import Menu from "./struct/Menu";
+import Navbar from "./Navbar";
+import "./Chat.css"
 
 const socket = io.connect("http://localhost:3001");
 
-
 function Chat() {
-    const [username, setUsername] = useState("");
+    var  local_name = localStorage.getItem('u_name');
     const [room, setRoom] = useState("");
-
-    const joinRoom = () => {
-        if (username !== "" && room !== ""){
-            socket.emit("join_room", room);
-        }
+    const [showChat, setShowChat] = useState(false);
+  const joinRoom = () => {
+    if (local_name !== "" && room !== "") {
+      socket.emit("join_room", room);
+      setShowChat(true);
     }
+  };
 
-    return (
-        <>
-        {Navbar()}
+  return (
+    <div className="ChatApp">
+    {Navbar()}
+        <div className="ChatContent">
         {Menu()}
-        <div className="Chat">
-            <h3>Join A Chat</h3>
-            <input type={"text"} placeholder="John..." onChange={(event) => {setUsername(event.target.value)}}></input>
-            <input type={"text"} placeholder="Room ID..." onChange={(event) => {setRoom(event.target.value)}}></input>
-            <button onClick={joinRoom}>Join A Room</button>
-            <Chat_send_recv socket={socket} username={username} room={room} />
+            {!showChat ? (
+                <div className="joinChatContainer">
+                <h3>Join A Chat</h3>
+                <input
+                    type="text"
+                    placeholder="Room ID..."
+                    onChange={(event) => {
+                    setRoom(event.target.value);
+                    }}
+                />
+                <button onClick={joinRoom}>Join A Room</button>
+                </div>
+            ) : (
+                <Chats_room socket={socket} username={local_name} room={room} />
+            )}
         </div>
-        </>
-
-    )
+    </div>
+  );
 }
 
 export default Chat;

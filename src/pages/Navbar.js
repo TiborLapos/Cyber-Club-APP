@@ -1,6 +1,5 @@
-import React, { useState, useEffect} from "react";
+import React from "react";
 import './navbar.css'
-import log_photo from '../images/rob.gif'
 import { CloseCircleFilled,MinusCircleFilled,FullscreenOutlined } from '@ant-design/icons';
 const { ipcRenderer } = window.require("electron");
 function send_exit() {

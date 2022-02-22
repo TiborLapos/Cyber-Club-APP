@@ -1,3 +1,48 @@
-.Chat{
+body{
+    color: white;
+}
+
+body h1{
     text-align: center;
 }
+
+.ChatContent{
+    margin-left: 112px; /* Same as the width of the sidenav */
+    font-size: 16px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
+  
+  
+  
+.joinChatContainer h3 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+.joinChatContainer input {
+  width: 210px;
+  height: 40px;
+  margin: 7px;
+  border: 2px solid #43a047;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 16px;
+}
+
+.joinChatContainer button {
+  width: 225px;
+  height: 50px;
+  margin: 7px;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 16px;
+  background: #43a047;
+  color: #fff;
+  cursor: pointer;
+}
+
+.joinChatContainer button:hover {
+    background: #2e7d32;
+  }
