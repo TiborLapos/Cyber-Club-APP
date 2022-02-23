@@ -1,21 +1,36 @@
 import React, { useEffect, useState } from "react";
 import ScrollToBottom from "react-scroll-to-bottom";
 import "./Chats_room.css"
+const { ipcRenderer } = window.require("electron");
+
+
+
+
 
 function Chats_room({ socket, username, room }) {
+
+
   const [currentMessage, setCurrentMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
-
+  const [state, setState] = useState({});
+  function addZero(i) {
+    if (i < 10) {i = "0" + i}
+    return i;
+  }
+  const d = new Date();
+  let h = addZero(d.getHours());
+  let m = addZero(d.getMinutes());
+  let s = addZero(d.getSeconds());
+  let time = h + ":" + m + ":" + s;
   const sendMessage = async () => {
+    
     if (currentMessage !== "") {
+      console.log(time)
       const messageData = {
         room: room,
         author: username,
         message: currentMessage,
-        time:
-          new Date(Date.now()).getHours() +
-          ":" +
-          new Date(Date.now()).getMinutes(),
+        time: time
       };
 
       await socket.emit("send_message", messageData);
@@ -27,8 +42,17 @@ function Chats_room({ socket, username, room }) {
   useEffect(() => {
     socket.on("receive_message", (data) => {
       setMessageList((list) => [...list, data]);
+      ipcRenderer.send('notify');
+
+      //ipcRenderer.send('notify', {name:data.author, da:data.message} );
+      return () => {
+        setState({}); // This worked for me
+      };
     });
   }, [socket]);
+
+
+
 
   return (
     <div className="chat-window">

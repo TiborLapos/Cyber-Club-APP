@@ -1,5 +1,5 @@
 const path = require("path");
-const { app, BrowserWindow } = require("electron");
+const { app, BrowserWindow, Notification} = require("electron");
 const isDev = require("electron-is-dev");
 const { ipcMain } = require('electron');
 
@@ -15,7 +15,7 @@ function createWindow() {
     webPreferences: {
       nodeIntegration: true,
       enableRemoteModule: true,
-      contextIsolation: false
+      contextIsolation: false,
     }
   });
 
@@ -38,6 +38,12 @@ function createWindow() {
   ipcMain.on('set:down', (event, data) => {
     win.minimize();
   });
+  ipcMain.on('notify', (event,data) => {
+    console.log("notf")
+    new Notification({title: 'asdasd', body: 'adsda'}).show();
+    new Notification({ title: "tes", body: "test" }).show()
+
+  })
 }
 
 // This method will be called when Electron has finished
@@ -50,6 +56,7 @@ app.on('ready', () =>{
 ipcMain.on('exit', (event, data) => {
   app.quit();
 });
+
 // Quit when all windows are closed, except on macOS. There, it's common
 // for applications and their menu bar to stay active until the user quits
 // explicitly with Cmd + Q.
