@@ -42,6 +42,7 @@ const Home = () => {
   
       }
     });
+    connection.end(); 
     //setTimeout("location.reload();",30000);
   }
 

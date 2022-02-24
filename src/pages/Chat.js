@@ -4,7 +4,7 @@ import Chats_room from "./Chats_room";
 import Menu from "./struct/Menu";
 import Navbar from "./Navbar";
 import "./Chat.css"
-
+const { ipcRenderer } = window.require("electron");
 const socket = io.connect("http://localhost:3001");
 
 function Chat() {
@@ -13,6 +13,7 @@ function Chat() {
     const [showChat, setShowChat] = useState(false);
   const joinRoom = () => {
     if (local_name !== "" && room !== "") {
+      ipcRenderer.send('notify');
       localStorage.setItem('room_name', room);
       socket.emit("join_room", room);
       setShowChat(true);
@@ -36,7 +37,7 @@ function Chat() {
             {!showChat ? (
                 <div className="joinChatContainer">
                 <h3>Join A Chat</h3>
-                <button onMouseDown={() => {setRoom("room1")}} onMouseUp={() => [joinRoom()]}>Room1</button>
+                <button onMouseDown={() => { setRoom("room1"); }} onMouseUp={() => [joinRoom()]}>Room1</button>
                 <button onMouseDown={() => {setRoom("room2")}} onMouseUp={() => [joinRoom()]}>Room2</button>
                 </div>
             ) : (

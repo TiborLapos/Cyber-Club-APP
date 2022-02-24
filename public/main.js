@@ -18,6 +18,7 @@ function createWindow() {
       contextIsolation: false,
     }
   });
+ 
 
   // and load the index.html of the app.
   // win.loadFile("index.html");
@@ -38,12 +39,19 @@ function createWindow() {
   ipcMain.on('set:down', (event, data) => {
     win.minimize();
   });
-  ipcMain.on('notify', (event,data) => {
-    console.log("notf")
-    new Notification({title: 'asdasd', body: 'adsda'}).show();
-    new Notification({ title: "tes", body: "test" }).show()
 
+  const NOTIFICATION_TITLE = 'Basic Notification'
+  const NOTIFICATION_BODY = 'Notification from the Main process'
+
+  function showNotification () {
+    new Notification({ title: NOTIFICATION_TITLE, body: NOTIFICATION_BODY }).show()
+  }
+
+  ipcMain.on('notify', () => {
+    console.log("notf")
+    //showNotification()
   })
+
 }
 
 // This method will be called when Electron has finished
