@@ -14,6 +14,7 @@ const menu = (
             <li><Link to="/home" id='home'>Home</Link></li>
             <li><Link to="/chat" id='chat'>chat</Link></li>
             <li><Link to="/test" id='test'>Test</Link></li>
+            <li><Link to="/test2" id='test'>Test2</Link></li>
 
         </ul>
        
