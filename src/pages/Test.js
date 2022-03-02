@@ -34,7 +34,7 @@ function Database(res){
                 Object.keys(result).forEach(function(key) {
                     var data = result[key];
                     //console.log(data.name)
-                   res(data.name)
+                   res(data)
                 });
             });
         });
@@ -43,6 +43,7 @@ function Database(res){
 
 function Test() {
     const [data, setData] = useState([]);
+    const [room, setRoom] = useState("");
     useEffect(() => {     
         Database((res) => {
             //console.log("Room Name: ",res); // results of the query
@@ -50,7 +51,10 @@ function Test() {
         })  
       },      
     [ ])     
-
+    const Printroom = () => {
+        console.log(room)
+    }
+  
     return (
         <div>
         {Navbar()}
@@ -59,7 +63,13 @@ function Test() {
             <br></br>
             <ul>
             {data.map(item => {
-                return <button key={item}>{item}</button>;
+                return(
+                    <div key={item.name}>
+                        <button key={item.name} onMouseDown={() => setRoom(item.email)} onMouseUpCapture={() => Printroom()}>{item.name}</button>
+                        <br></br>
+                    </div>
+                   
+                )
             })}
             </ul>
             </div>
