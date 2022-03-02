@@ -22,7 +22,6 @@ function Database(res){
         port : 8889,
         database : 'loginsystem'
     });
-    function func(cb){
         // make to connection to the database.
         connection.connect(function(err) {
             if (err) throw err;
@@ -35,18 +34,10 @@ function Database(res){
                 Object.keys(result).forEach(function(key) {
                     var data = result[key];
                     //console.log(data.name)
-                   cb(data.name)
+                   res(data.name)
                 });
-
             });
         });
-    }
-    func((a) => {
-        console.log("Results: ",a); // results of the query
-        res(a)
-      })
-
-
 }
 
 
@@ -54,8 +45,7 @@ function Test() {
     const [data, setData] = useState([]);
     useEffect(() => {     
         Database((res) => {
-            console.log("Funguje ?",res); // results of the query
-            //test.push(res)
+            //console.log("Room Name: ",res); // results of the query
             setData((list) => [...list, res]);
         })  
       },      
@@ -69,7 +59,7 @@ function Test() {
             <br></br>
             <ul>
             {data.map(item => {
-                return <li>{item}</li>;
+                return <button key={item}>{item}</button>;
             })}
             </ul>
             </div>
