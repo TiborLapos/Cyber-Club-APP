@@ -5,7 +5,8 @@ import Menu from "./struct/Menu";
 import Navbar from "./Navbar";
 import "./Chat.css"
 import { result } from "lodash";
-
+const { ipcRenderer } = window.require("electron");
+const socket = io.connect("http://localhost:3001");
 
 
 
@@ -44,6 +45,18 @@ function Database(res){
 function Test() {
     const [data, setData] = useState([]);
     const [room, setRoom] = useState("");
+    var  local_name = localStorage.getItem('u_name');
+    const [showChat, setShowChat] = useState(false);
+
+    const joinRoom = () => {
+        if (local_name !== "" && room !== "") {
+          //ipcRenderer.send('notify');
+          socket.emit("join_room", room);
+          setShowChat(true);
+        }
+      };
+
+
     useEffect(() => {     
         Database((res) => {
             //console.log("Room Name: ",res); // results of the query
@@ -60,18 +73,21 @@ function Test() {
         {Navbar()}
             <div className="ChatContent">
             {Menu()}
-            <br></br>
-            <ul>
-            {data.map(item => {
-                return(
-                    <div key={item.room_id}>
-                        <button key={item.room_id} onMouseDown={() => setRoom(item.room_id)} onMouseUpCapture={() => Printroom()}>{item.room_name}</button>
-                        <br></br>
-                    </div>
-                   
-                )
-            })}
-            </ul>
+            {!showChat ? (
+                <div className="joinChatContainer">
+                    <h1>Join to Room</h1>
+                    <ul>
+                    {data.map(item => {
+                        return(
+                                <button key={item.room_id} onMouseDown={() => setRoom(item.room_id)} onMouseUp={() => [joinRoom(),localStorage.setItem('room_name', item.room_name)]}>{item.room_name}</button>
+                        )
+                    })}
+                </ul>
+               </div>
+            ) : (
+                <Chats_room socket={socket} username={local_name} room={room} />
+            )}
+         
             </div>
         </div>
         

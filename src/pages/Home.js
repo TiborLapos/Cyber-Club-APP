@@ -36,7 +36,7 @@ const Home = () => {
         console.log("error_fetching_data_from_database --",results.length);
         setLoggedIn(false)
       }else{
-        console.log(results[0].uuid)
+        //console.log(results[0].uuid)
         setUsername(results[0].name)
         setU_UUID(results[0].uuid)
   
