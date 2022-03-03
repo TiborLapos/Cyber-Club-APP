@@ -6,6 +6,7 @@ import Logout from "./Logout"
 import Chat from "./Chat";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Test from "./Test";
+import Cr_room from "./Cr_room"
 
 
 
@@ -21,6 +22,8 @@ const Navigate = () => {
             <Route path="/logout"  element={<Logout/>} />
             <Route path="/chat"  element={<Chat/>} />
             <Route path="/test"  element={<Test/>} />
+            <Route path="/cr_room"  element={<Cr_room/>} />
+
             <Route element={ <Home/> } />
             <Route path="*" element={<Missingroute/>} />
           </Routes>

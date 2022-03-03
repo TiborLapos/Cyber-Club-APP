@@ -26,7 +26,7 @@ function Database(res){
         connection.connect(function(err) {
             if (err) throw err;
             // if connection is successful
-            connection.query("SELECT * FROM users", function (err, result, fields) {
+            connection.query("SELECT * FROM chat_room", function (err, result, fields) {
             // if any error while executing above query, throw error
             if (err) throw err;
             // if there is no error, you have the result
@@ -64,8 +64,8 @@ function Test() {
             <ul>
             {data.map(item => {
                 return(
-                    <div key={item.name}>
-                        <button key={item.name} onMouseDown={() => setRoom(item.email)} onMouseUpCapture={() => Printroom()}>{item.name}</button>
+                    <div key={item.room_id}>
+                        <button key={item.room_id} onMouseDown={() => setRoom(item.room_id)} onMouseUpCapture={() => Printroom()}>{item.room_name}</button>
                         <br></br>
                     </div>
                    
