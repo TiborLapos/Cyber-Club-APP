@@ -7,10 +7,24 @@ import "./Chat.css"
 const { ipcRenderer } = window.require("electron");
 const socket = io.connect("http://localhost:3001");
 
+
 function Chat() {
-    var  local_name = localStorage.getItem('u_name');
-    const [room, setRoom] = useState("");
-    const [showChat, setShowChat] = useState(false);
+  console.log(socket.socket.connected);
+  console.log(socket.socket.connecting);
+
+  socket.on('connect', function () {
+    console.log('Socket is connected.');
+  });
+  
+  socket.on('disconnect', function () {
+    console.log('Socket is disconnected.');
+  });
+  
+  
+
+  var  local_name = localStorage.getItem('u_name');
+  const [room, setRoom] = useState("");
+  const [showChat, setShowChat] = useState(false);
   const joinRoom = () => {
     if (local_name !== "" && room !== "") {
       ipcRenderer.send('notify');

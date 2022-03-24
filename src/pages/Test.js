@@ -10,12 +10,10 @@ const socket = io.connect("http://localhost:3001");
 
 
 
-
 var mysql = window.require('mysql');
 
 function Database(res){
     var data = []
-
     var connection = mysql.createConnection({
         host     : 'localhost',
         user     : 'root',
@@ -47,6 +45,9 @@ function Test() {
     const [room, setRoom] = useState("");
     var  local_name = localStorage.getItem('u_name');
     const [showChat, setShowChat] = useState(false);
+
+
+    console.log(socket.connected);
 
     const joinRoom = () => {
         if (local_name !== "" && room !== "") {

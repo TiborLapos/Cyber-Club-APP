@@ -56,9 +56,11 @@ const Home = () => {
         <h1>THIS IS HOME PAGE</h1>
         <a>Name: {Username}</a>
         <br/>
-        <a>LOCAL UUID: </a>{localStorage.getItem("uuid")}
+        <a>Local UUID: </a>{localStorage.getItem("uuid")}
         <br/>
-        <a>DATABASE UUID: {U_UUID}</a>
+        <a>Database UUID: {U_UUID}</a>
+        <br/>
+        <a>Server STATUS: {U_UUID}</a>
       </div>
     </div>
   )
