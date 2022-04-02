@@ -6,8 +6,8 @@ import Logout from "./Logout"
 import Chat from "./Chat";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Test from "./chat/Test";
-import Cr_room from "./chat/Cr_room"
-
+import Cr_room from "./chat/Cr_room";
+import Info from "./data/Info";
 
 
 
@@ -20,6 +20,7 @@ const Navigate = () => {
             </Route>
             <Route path="/home"  element={<Home/>} />
             <Route path="/logout"  element={<Logout/>} />
+            <Route path="/info"  element={<Info/>} />
             <Route path="/chat"  element={<Chat/>} />
             <Route path="/test"  element={<Test/>} />
             <Route path="/cr_room"  element={<Cr_room/>} />
