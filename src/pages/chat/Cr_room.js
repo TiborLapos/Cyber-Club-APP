@@ -54,7 +54,7 @@ function Test() {
                 <label>Enter Room Name:
                     <input 
                     type="text"
-                    placeholder="Name a of the room"
+                    placeholder="Name of the room"
                     value={room}
                     onChange={(e) => setRoom(e.target.value)}
                     />
