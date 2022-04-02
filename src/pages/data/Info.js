@@ -81,6 +81,7 @@ const Info = () => {
       }, [state]);    
     const data = [
         {
+          name: "Page A",
           users: num,
           amt: 100
         },
@@ -107,10 +108,10 @@ const Info = () => {
                 barSize={25}
             >
                 <YAxis dataKey="amt" />
-                <Tooltip/>
+                <Tooltip cursor={{fill: 'transparent'}}/>
                 <Legend />
                 <CartesianGrid strokeDasharray="1 1"/>
-                <Bar dataKey="users" fill="#8884d8" background={{ fill: "#eee" }} />
+                <Bar dataKey="users" fill="#8884d8" background={{ fill: "silver" }} />
             </BarChart>
             </div>
             <div className="info">
@@ -121,11 +122,11 @@ const Info = () => {
                 data={data1}
                 barSize={25}
             >
-                <YAxis dataKey="amt" />
-                <Tooltip />
+                <YAxis dataKey="amt"/>
+                <Tooltip cursor={{fill: 'transparent'}}/>
                 <Legend />
                 <CartesianGrid strokeDasharray="1 1"/>
-                <Bar dataKey="rooms" fill="#8884d8" background={{ fill: "#eee" }} />
+                <Bar dataKey="rooms" fill="#8884d8" background={{ fill: "silver" }} />
             </BarChart>
             </div>
         </div>
