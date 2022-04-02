@@ -5,8 +5,8 @@ import Missingroute from "./Missingroute";
 import Logout from "./Logout"
 import Chat from "./Chat";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Test from "./Test";
-import Cr_room from "./Cr_room"
+import Test from "./chat/Test";
+import Cr_room from "./chat/Cr_room"
 
 
 

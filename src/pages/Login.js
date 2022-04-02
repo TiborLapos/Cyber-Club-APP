@@ -32,9 +32,9 @@ function Login() {
     
     //MySQL conect inf
     var connection = mysql.createConnection({
-      host     : 'localhost',
+      host     : 'cyberclub.network',
       user     : 'root',
-      password : 'root',
+      password : 'Tibike11',
       port : 8889,
       database : 'loginsystem'
     });

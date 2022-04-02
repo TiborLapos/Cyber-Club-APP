@@ -1,6 +1,6 @@
 import io from "socket.io-client";
 import { useState,Component } from "react";
-import Chats_room from "./Chats_room";
+import Chats_room from "./chat/Chats_room";
 import Menu from "./struct/Menu";
 import Navbar from "./Navbar";
 import "./Chat.css"

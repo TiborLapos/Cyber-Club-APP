@@ -1,26 +1,25 @@
 import io from "socket.io-client";
 import {React, useState,Component,useEffect } from "react";
 import Chats_room from "./Chats_room";
-import Menu from "./struct/Menu";
-import Navbar from "./Navbar";
-import "./Chat.css"
-import { result } from "lodash";
+import Menu from "../struct/Menu";
+import Navbar from "../Navbar";
+import "../chat/Chats_room.css"
+import { nanoid } from 'nanoid'
+
 const { ipcRenderer } = window.require("electron");
 const socket = io.connect("http://localhost:3001");
-
-
-
 var mysql = window.require('mysql');
+
 
 function Database(res){
     var data = []
     var connection = mysql.createConnection({
-        host     : 'localhost',
+        host     : 'cyberclub.network',
         user     : 'root',
-        password : 'root',
+        password : 'Tibike11',
         port : 8889,
         database : 'loginsystem'
-    });
+      });
         // make to connection to the database.
         connection.connect(function(err) {
             if (err) throw err;
@@ -47,13 +46,20 @@ function Test() {
     const [showChat, setShowChat] = useState(false);
 
 
-    console.log(socket.connected);
+    const key = nanoid()
+    //console.log(key)
+    
+    //console.log(socket.connected);
 
     const joinRoom = () => {
         if (local_name !== "" && room !== "") {
           //ipcRenderer.send('notify');
           socket.emit("join_room", room);
-          setShowChat(true);
+          if(socket.connected == true){
+            setShowChat(true);
+          }else{
+            setShowChat(false);
+          }
         }
       };
 
@@ -80,7 +86,7 @@ function Test() {
                     <ul>
                     {data.map(item => {
                         return(
-                                <button key={item.room_id} onMouseDown={() => setRoom(item.room_id)} onMouseUp={() => [joinRoom(),localStorage.setItem('room_name', item.room_name)]}>{item.room_name}</button>
+                                <button key={item.room_id+key} onMouseDown={() => setRoom(item.room_id)} onMouseUp={() => [joinRoom(),localStorage.setItem('room_name', item.room_name)]}>{item.room_name}</button>
                         )
                     })}
                 </ul>

@@ -19,9 +19,9 @@ const Home = () => {
   //MySQL conect inf
   function checkNewUpdate(){
     var connection = mysql.createConnection({
-      host     : 'localhost',
+      host     : 'cyberclub.network',
       user     : 'root',
-      password : 'root',
+      password : 'Tibike11',
       port : 8889,
       database : 'loginsystem'
     });

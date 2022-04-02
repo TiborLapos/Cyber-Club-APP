@@ -1,15 +1,9 @@
 import {React, useState,Component,useEffect,ReactDOM } from "react";
-import Menu from "./struct/Menu";
-import Navbar from "./Navbar";
+import Menu from "../struct/Menu";
+import Navbar from "../Navbar";
 import { values } from "lodash";
 import { nanoid } from 'nanoid'
 import { customAlphabet } from 'nanoid'
-
-
-
-
-
-
 
 var mysql = window.require('mysql');
 
@@ -21,12 +15,12 @@ function Test() {
 
     function Database(props){
         var con = mysql.createConnection({
-            host     : 'localhost',
+            host     : 'cyberclub.network',
             user     : 'root',
-            password : 'root',
+            password : 'Tibike11',
             port : 8889,
             database : 'loginsystem'
-        });
+          });
         con.connect(function(err) {
             if (err) throw err;
             console.log("Connected!");
